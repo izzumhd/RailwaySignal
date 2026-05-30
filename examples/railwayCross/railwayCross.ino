@@ -1,9 +1,8 @@
 #include <Servo.h>
-#include "RailwaySignal.h"
+#include <RailwaySignal.h>
 
 #define BTN_NORMAL PA3
 #define BTN_TRAIN  PA2
-#define SERVO_PIN  PA1
 
 Servo gate;
 RailwaySignal sinyal;
@@ -27,7 +26,7 @@ void setup() {
     pinMode(BTN_NORMAL, INPUT_PULLUP);
     pinMode(BTN_TRAIN, INPUT_PULLUP);
 
-    gate.attach(SERVO_PIN);
+    gate.attach(PA1);
     gate.write(currentAngle);
     sinyal.attach(PA3, PA4, PA5); // (led1, led2, buzzer)
 }
