@@ -64,7 +64,7 @@ public:
             digitalWrite(led2Pin, !ledState);
         }
 
-        if (millis() - prevBuzz >= 250) {
+        if (millis() - prevBuzz >= 125) {
             prevBuzz = millis();
             buzzState = !buzzState;
             digitalWrite(buzzerPin, buzzState);
