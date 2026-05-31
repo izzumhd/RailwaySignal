@@ -30,7 +30,7 @@ public:
 
         digitalWrite(led1Pin, LOW);
         digitalWrite(led2Pin, LOW);
-        noTone(buzzerPin);
+        digitalWrite(buzzerPin, LOW);
     }
 
     void startWarning()
@@ -40,15 +40,14 @@ public:
 
     void stopWarning()
     {
-        active = false;
+    active = false;
 
-        digitalWrite(led1Pin, LOW);
-        digitalWrite(led2Pin, LOW);
+    digitalWrite(led1Pin, LOW);
+    digitalWrite(led2Pin, LOW);
+    digitalWrite(buzzerPin, LOW);
 
-        noTone(buzzerPin);
-
-        ledState = false;
-        buzzState = false;
+    ledState = false;
+    buzzState = false;
     }
 
     void update()
