@@ -50,12 +50,12 @@ public:
     buzzState = false;
     }
 
-    void update()
+    void update(const int ledTime, const int buzzTime)
     {
         if (!active) return;
 
         // LED berkedip bergantian setiap 500 ms
-        if (millis() - prevLed >= 500) {
+        if (millis() - prevLed >= ledTime) {
             prevLed = millis();
 
             ledState = !ledState;
@@ -64,7 +64,7 @@ public:
             digitalWrite(led2Pin, !ledState);
         }
 
-        if (millis() - prevBuzz >= 125) {
+        if (millis() - prevBuzz >= buzzTime) {
             prevBuzz = millis();
             buzzState = !buzzState;
             digitalWrite(buzzerPin, buzzState);
